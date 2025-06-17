@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>CONF10 FIGHT</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-900">
+
+    <div id="character-select-screen" class="w-full max-w-5xl text-center p-4">
+        <h1 class="text-4xl md:text-5xl mb-2">CONF10 FIGHT</h1>
+        <h2 id="selection-title" class="text-2xl text-yellow-400 mb-8">Jogador 1: Escolha seu Lutador</h2>
+        <div id="character-grid" class="grid grid-cols-2 md:grid-cols-4 gap-6"></div>
+    </div>
+
+    <div id="game-screen" class="hidden w-full h-[600px] max-w-6xl">
+        <div class="absolute top-0 left-0 right-0 p-4 flex justify-between items-start bg-black bg-opacity-30">
+            <div class="w-2/5 space-y-2">
+                <div id="p1-name" class="text-red-500 text-lg">JOGADOR 1</div>
+                <div class="w-full bg-gray-700 rounded-full h-6 border-2 border-red-500"><div id="p1-health" class="bar-inner bg-red-500"></div></div>
+                <div class="w-full bg-gray-700 rounded-full h-4 border-2 border-yellow-400"><div id="p1-special" class="bar-inner bg-yellow-400"></div></div>
+            </div>
+            <div id="timer" class="text-4xl text-yellow-400">FIGHT!</div>
+            <div class="w-2/5 space-y-2">
+                <div id="p2-name" class="text-blue-500 text-lg text-right">JOGADOR 2</div>
+                <div class="w-full bg-gray-700 rounded-full h-6 border-2 border-blue-500"><div id="p2-health" class="bar-inner bg-blue-500"></div></div>
+                <div class="w-full bg-gray-700 rounded-full h-4 border-2 border-yellow-400"><div id="p2-special" class="bar-inner bg-yellow-400"></div></div>
+            </div>
+        </div>
+
+        <div id="player1" class="player"><div class="sprite-container"><div class="sprite"></div></div></div>
+        <div id="player2" class="player"><div class="sprite-container"><div class="sprite"></div></div></div>
+        
+        <div id="message-box" class="absolute inset-0 bg-black bg-opacity-70 flex-col items-center justify-center hidden">
+            <h2 id="message-text" class="text-6xl text-yellow-400 text-center"></h2>
+            <button id="play-again-btn" class="mt-8 px-8 py-4 bg-green-500 hover:bg-green-600 text-white text-2xl rounded-lg">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

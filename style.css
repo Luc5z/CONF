@@ -1,0 +1,135 @@
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #1a202c;
+    color: #e2e8f0;
+    overflow: hidden;
+}
+
+.character-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-width: 4px;
+    background-color: #2d3748;
+    overflow: hidden;
+}
+
+.character-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.character-card .portrait {
+    width: 100%;
+    height: 256px;
+    object-fit: cover;
+    object-position: 50% 20%;
+}
+
+.character-card.selected-p1 {
+    border-color: #ef4444;
+    box-shadow: 0 0 25px #ef4444;
+}
+
+.character-card.selected-p2 {
+    border-color: #3b82f6;
+    box-shadow: 0 0 25px #3b82f6;
+}
+
+#game-screen {
+    background: url('img/conf101.png') no-repeat center center;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #4a5568;
+}
+
+.player {
+    position: absolute;
+    bottom: 0;
+    width: 150px;
+    height: 200px;
+    will-change: left, bottom, transform;
+}
+
+.player .sprite-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.player .sprite {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    image-rendering: pixelated;
+    /* Removida a transição que causa o "sumiço" */
+}
+
+/* Classe específica para sprite sheets (outros personagens) */
+.player .sprite.sprite-sheet {
+    width: 400%;
+    height: 200%;
+    background-position: 0 0;
+}
+
+/* Classe específica para sprites individuais (Sharks) */
+.player .sprite.individual-sprite {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    /* Otimizações para renderização mais suave */
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+.damage-flash {
+    animation: hit-flash 0.3s;
+}
+
+@keyframes hit-flash {
+    0%, 100% {
+        filter: brightness(1);
+    }
+
+    50% {
+        filter: brightness(2.5);
+    }
+}
+
+.special-attack-effect {
+    animation: special-pulse 0.6s ease-out;
+}
+
+@keyframes special-pulse {
+    0% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #fef08a);
+    }
+
+    50% {
+        transform: scale(1.15);
+        filter: drop-shadow(0 0 25px #fef08a);
+    }
+
+    100% {
+        transform: scale(1);
+        filter: drop-shadow(0 0 5px #fef08a);
+    }
+}
+
+.bar-inner {
+    transition: width 0.3s ease-in-out;
+    height: 100%;
+    border-radius: 9999px;
+}
+
+#message-box {
+    transition: opacity 0.5s ease;
+}
